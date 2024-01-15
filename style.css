@@ -1,0 +1,429 @@
+/* Общие стили */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #FFF;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header {
+    background-color: #FFF;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    position: relative;
+}
+
+header .logo img {
+    height: 60px;
+}
+
+.hero {
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+        url('iphones.jfif') no-repeat center center;
+    background-size: cover;
+    padding: 80px 0;
+}
+
+.hero h1 {
+    font-size: 4em;
+    /* Увеличение размера */
+    font-weight: 700;
+    /* Жирный шрифт */
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    width: 100%;
+    /* Растягиваем на весь блок */
+    text-align: center;
+    /* Выравнивание по центру */
+}
+
+.hero p {
+    font-size: 1.8em;
+    font-weight: 400;
+    color: #555;
+    max-width: 100%;
+    /* Растягиваем на весь блок */
+    margin: 0 auto;
+    line-height: 1.4;
+    text-align: center;
+    /* Выравнивание по центру */
+}
+
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 1;
+}
+
+.hero .container {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+nav ul li a i {
+    margin-right: 8px; /* Отступ от текста, если он есть */
+}
+
+/* Стили для иконок */
+.fab {
+    font-size: 1.2em; /* Размер иконки */
+    color: #333; /* Цвет иконки */
+}
+
+/* Стили для изменения цвета иконки при наведении */
+nav ul li a:hover .fab {
+    color: #ffcc00;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    color: #ffcc00;
+    /* Желтый цвет при наведении */
+    background-color: #f0f0f0;
+    border-bottom: 3px solid #ffcc00;
+    /* Желтое подчеркивание */
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .card {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+.products h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+    text-transform: none;
+    /* Убираем все заглавные буквы для более современного вида */
+    letter-spacing: normal;
+    /* Стандартный межбуквенный интервал */
+}
+
+/* Дополнительные стили для улучшения внешнего вида */
+.products {
+    padding: 40px 0;
+    text-align: center;
+}
+
+/* Стиль для подзаголовка (если нужен) */
+.products p {
+    font-size: 1.2em;
+    color: #666;
+    margin-top: 10px;
+}
+
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    /* Добавляем маржин для отступа между карточками */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: calc(33.333% - 20px);
+    height: 400px;
+    /* Расчет ширины для трех карточек в ряду с учетом отступов */
+    margin: 10px;
+    /* Ширина карточек с учетом отступов */
+    float: left;
+    /* Для выравнивания карточек в ряд */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.card-image {
+    height: 200px;
+    /* Высота для изображения */
+    width: 100%;
+    /* Ширина изображения растягивается на всю карточку */
+    object-fit: contain;
+    /* Изображение подстраивается, сохраняя пропорции */
+    object-position: center;
+    /* Центрируем изображение в блоке */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Сброс стилей для обтекания */
+.products:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.card-content {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.card-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    /* Полупрозрачный черный фон */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    /* Выравнивание содержимого по центру по вертикали */
+    justify-content: center;
+    /* Выравнивание содержимого по центру по горизонтали */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .card-info {
+    opacity: 1;
+    /* Показываем информацию при наведении */
+}
+
+.about {
+    padding: 40px 15px;
+    /* Добавляем отступы */
+    position: relative;
+    /* Для позиционирования подложки */
+}
+
+/* Подложка, начинающаяся после заголовка */
+.about::after {
+    content: '';
+    position: absolute;
+    top: 60px;
+    /* Смещаем вниз относительно начала блока */
+    left: 0;
+    right: 0;
+    background: url('smarthub-logo.svg') no-repeat center center;
+    background-size: cover;
+    /* Растягиваем фон на весь блок */
+    opacity: 0.1;
+    /* Уменьшаем прозрачность */
+    z-index: -1;
+    height: calc(100% - 60px);
+    /* Высота подложки */
+}
+
+/* Стилизация заголовка */
+.about h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Анимация при скролле */
+.about h2,
+.about p {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    /* Увеличиваем смещение и добавляем эффект масштабирования */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    /* Увеличиваем продолжительность анимации */
+    will-change: opacity, transform;
+}
+
+/* Активация анимации при скролле */
+.about.in-view h2,
+.about.in-view p {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    /* Возвращаем элементы в исходное состояние */
+}
+
+
+/* Анимация для текста */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about h2,
+.about p {
+    animation: fadeIn 1s ease-out;
+}
+
+.contacts {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.contacts h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+.contacts p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: left;
+}
+
+th, td {
+    padding: 8px 12px;
+    border: 1px solid #ddd; /* Границы для ячеек таблицы */
+}
+
+th {
+    background-color: #f8f8f8; /* Цвет фона для заголовков */
+    font-weight: bold;
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Чередование цвета фона строк */
+}
+
+.career {
+    padding: 40px 0;
+    text-align: center;
+    background-color: #f8f8f7; /* Добавляем фон для визуального разделения блоков */
+}
+
+.career h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.career p {
+    font-size: 1.2em;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #333; /* Темный фон для контраста */
+    color: #fff; /* Белый текст для читаемости */
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+footer a {
+    color: #ffcc00; /* Желтый цвет для ссылок */
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+footer a:hover {
+    color: #fff; /* Смена цвета при наведении */
+}
