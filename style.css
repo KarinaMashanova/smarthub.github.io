@@ -246,6 +246,33 @@ footer a:hover {
     text-decoration: underline; 
 }
 
+/* Таблица */
+.salons table {
+    width: 80%; 
+    margin: 0 auto; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: #fff; 
+}
+
+/* Стилизация ячеек заголовка таблицы */
+.salons th {
+    padding: 15px;
+    background-color: #545456;
+    color: #fff; 
+    font-size: 1em; 
+}
+
+.salons td {
+    padding: 10px; 
+    border-bottom: 1px solid #ddd;
+    text-align: center; 
+    font-size: 0.9em; 
+}
+
+.salons tr:nth-child(even) {
+    background-color: #f8f8f8; 
+}
+
 /* Адаптивные стили для мобильных устройств */
 @media (max-width: 768px) {
     header .container, nav ul {
@@ -291,16 +318,18 @@ footer a:hover {
         z-index: 4;
     }
 
-    .about h1, .contacts h1, .salons h1 {
-        font-size: 1.3em;
-    }
 
-    .about h3, .contacts h3, .salons h3 {
+    .about h3, .contacts h3, .salons h3, .career h3 {
         font-size: 1em;
     }
 
     footer .footer-content {
         padding: 10px;
+    }
+
+    .salons table {
+        display: block;
+        overflow-x: auto; 
     }
 }
 
