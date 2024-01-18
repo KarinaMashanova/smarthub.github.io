@@ -37,7 +37,7 @@ header {
     padding: 20px 0; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
     position: relative;
-    z-index: 2; 
+    z-index: 4; 
 }
 
 header .logo img {
@@ -95,11 +95,11 @@ nav ul li a:focus {
     left: 0;
     background: rgba(255, 255, 255, 0.3);
     opacity: 0.3;
-    z-index: 1;
+    z-index: 2;
 }
 
 .hero h1, .hero h2 {
-    z-index: 2;
+    z-index: 3;
     margin-top: 10px; 
     margin-bottom: 10px; 
     max-width: 50%;
@@ -115,6 +115,21 @@ nav ul li a:focus {
     line-height: 1.3;
 }
 
+/* Секция продуктов */
+.products {
+    padding: 30px 15px;
+    text-align: center;
+    clear: both;
+}
+
+/* Обертка для карточек */
+.products-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
 /* Карточки продуктов */
 .card {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -124,7 +139,6 @@ nav ul li a:focus {
     width: calc(33.333% - 20px);
     height: 350px;
     margin: 10px;
-    float: left;
     display: flex;
     flex-direction: column;
 }
@@ -175,10 +189,38 @@ nav ul li a:focus {
     transform: scale(1); 
 }
 
+
 /* Секции */
 section {
     padding: 30px 15px;
     text-align: center;
+}
+
+/* О нас */
+.about {
+    position: relative;
+    padding: 40px 15px;
+    text-align: center;
+    padding-top: 70px; 
+    margin-top: -70px; 
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('smarthub-logo.svg') no-repeat center center;
+    background-size: contain;
+    opacity: 0.1; 
+    z-index: -1;
+}
+
+.about h1, .about p {
+    position: relative;
+    z-index: 1;
 }
 
 /* Футер */
@@ -246,7 +288,7 @@ footer a:hover {
 
     .card:active .card-info {
         opacity: 1;
-        z-index: 10;
+        z-index: 4;
     }
 
     footer .footer-content {
