@@ -1,64 +1,135 @@
-/* Общие стили */
+/* Импорт шрифтов Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Базовые стили */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
     background-color: #FFF;
 }
 
+/* Базовые размеры шрифтов */
+:root {
+    --font-size-normal: 1em;
+    --font-size-large: 1.2em;
+    --font-size-xlarge: 1.5em;
+    --font-size-title: 2.5em;
+    --padding-section: 40px;
+}
+
+/* Стилизация всех заголовков */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    color: #333;
+    margin-top: 0;
+}
+
+h1 { font-size: var(--font-size-title); }
+h2 { font-size: var(--font-size-xlarge); }
+h3 { font-size: var(--font-size-large); }
+
+/* Секции */
+section {
+    padding: var(--padding-section) 15px;
+    text-align: center;
+}
+
+/* Стили для глобальных контейнеров */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Центрирование и отступы снаружи */
+    padding: 0 15px; /* Внутренние отступы */
+    display: flex; /* Flex-контейнер */
+    justify-content: space-between; /* Распределение элементов по ширине */
+    align-items: center; /* Выравнивание элементов по вертикали */
+}
+
+/* Шапка сайта */
+header {
+    background-color: #545456; /* Цвет фона шапки */
+    padding: 20px 0; /* Внутренние отступы шапки */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень под шапкой */
+    position: relative; /* Для позиционирования элементов внутри */
+    z-index: 2; /* Z-index для слоя шапки */
+}
+
+/* Настройки основного контейнера в шапке */
+header .container {
+    display: flex; /* Flex-контейнер */
+    justify-content: space-between; /* Распределение элементов */
+    align-items: center; /* Выравнивание элементов */
+}
+
+/* Стилизация логотипа в шапке */
+header .logo img {
+    height: 100px; /* Высота логотипа */
+}
+
+/* Настройки навигации */
+nav {
+    text-align: center;
+}
+
+/* Навигация */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
-header {
-    background-color: #FFF;
-    padding: 20px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 2;
-    position: relative;
+nav ul li {
+    margin: 0 10px;
 }
 
-header .logo img {
-    height: 60px;
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
 }
 
+nav ul li a:hover,
+nav ul li a:focus {
+    color: #ffff00; /* Цвет текста при наведении */
+    text-decoration: underline; /* Подчеркивание при наведении */
+    background-color: transparent; /* Убираем фон при наведении */
+}
+
+/* Настройки "герой" блока */
 .hero {
+    display: flex; /* Выстраиваем элементы в ряд */
+    align-items: center; /* Вертикальное выравнивание элементов */
+    justify-content: center; /* Горизонтальное выравнивание элементов */
+    flex-direction: column; /* Элементы в колонку для сохранения порядка */
+    text-align: center; /* Выравнивание текста по центру */
+    padding: 100px 0; /* Внутренние отступы */
     background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
-        url('iphones.jfif') no-repeat center center;
+                url('iphones.jfif') no-repeat center center;
     background-size: cover;
-    padding: 80px 0;
+}
+
+.hero h1, .hero p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    width: 100%;
+    margin: 0; /* Убираем внешние отступы */
 }
 
 .hero h1 {
-    font-size: 4em;
-    /* Увеличение размера */
-    font-weight: 700;
-    /* Жирный шрифт */
-    color: #333;
-    margin-bottom: 20px;
-    line-height: 1.1;
-    width: 100%;
-    /* Растягиваем на весь блок */
-    text-align: center;
-    /* Выравнивание по центру */
+    font-size: 2.5em; /* Увеличиваем размер шрифта */
+    font-weight: 400;
+    line-height: 1.2; /* Высота строки */
+    margin-bottom: 10px; /* Отступ снизу */
 }
 
 .hero p {
-    font-size: 1.8em;
+    font-size: 1.8em; /* Чуть меньший размер шрифта, чем у h1 */
     font-weight: 400;
     color: #555;
-    max-width: 100%;
-    /* Растягиваем на весь блок */
-    margin: 0 auto;
-    line-height: 1.4;
-    text-align: center;
-    /* Выравнивание по центру */
+    line-height: 1.3; /* Высота строки */
 }
 
 
@@ -70,292 +141,276 @@ header .logo img {
     bottom: 0;
     left: 0;
     background: rgba(255, 255, 255, 0.3);
+    opacity: 0.3; /* Текущий уровень прозрачности */
     z-index: 1;
 }
 
+
 .hero .container {
-    max-width: 960px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 100px 20px;
-    position: relative;
-    z-index: 2;
+    max-width: 960px; /* Максимальная ширина контента */
+    margin: 0 auto; /* Центрирование */
+    text-align: center; /* Выравнивание текста по центру */
+    padding: 100px 20px; /* Внутренние отступы */
+    position: relative; /* Относительное позиционирование для наложения */
+    z-index: 2; /* Выше слоя ::before */
 }
 
+/* Стили для навигационной панели */
 nav {
-    text-align: center;
+    text-align: center; /* Выравнивание элементов по центру */
 }
 
 nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    list-style: none; /* Убираем стандартные маркеры списка */
+    padding: 0; /* Убираем внутренние отступы */
+    margin: 0; /* Убираем внешние отступы */
+    display: flex; /* Элементы в строку */
+    align-items: center; /* Выравнивание по центру */
 }
 
 nav ul li {
-    margin: 0 20px;
+    margin: 0 10px; /* Отступы между элементами списка */
 }
 
 nav ul li a {
-    color: #333;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    border-bottom: 3px solid transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-nav ul li a i {
-    margin-right: 8px; /* Отступ от текста, если он есть */
-}
-
-/* Стили для иконок */
-.fab {
-    font-size: 1.2em; /* Размер иконки */
-    color: #333; /* Цвет иконки */
-}
-
-/* Стили для изменения цвета иконки при наведении */
-nav ul li a:hover .fab {
-    color: #ffcc00;
+    color: #fff; /* Белый цвет текста ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+    padding: 10px 15px; /* Внутренние отступы */
 }
 
 nav ul li a:hover,
 nav ul li a:focus {
-    color: #ffcc00;
-    /* Желтый цвет при наведении */
-    background-color: #f0f0f0;
-    border-bottom: 3px solid #ffcc00;
-    /* Желтое подчеркивание */
+    color: #ffff00; /* Желтый цвет текста при наведении */
+    text-decoration: underline; /* Подчеркивание текста */
+    background-color: transparent; /* Прозрачный фон */
 }
 
+/* Стили для мобильных устройств */
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        padding: 20px;
+    header .container {
+        flex-direction: column; /* Столбцовое расположение элементов */
+        align-items: flex-start; /* Выравнивание элементов в начале контейнера */
+    }
+
+    nav {
+        width: 100%; /* Навигация на всю ширину */
     }
 
     nav ul {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row; /* Элементы списка в строку */
     }
 
     nav ul li {
-        margin: 10px 0;
+        width: 100%; /* Каждый элемент списка на всю ширину */
     }
 
+    .nav-trigger {
+        display: block; /* Отображение кнопки меню (гамбургер) */
+    }
+
+    .nav-trigger:checked ~ nav ul {
+        display: flex; /* Отображение навигационного меню */
+    }
+    
     nav ul li a {
-        display: block;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .card {
-        width: 100%;
-        margin: 10px 0;
+        display: block; /* Ссылки блочного типа */
+        text-align: left; /* Текст по левому краю */
+        padding: 10px; /* Внутренние отступы */
     }
 }
 
+/* Стили для блока продуктов */
 .products h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #333;
-    font-weight: 600;
-    text-transform: none;
-    /* Убираем все заглавные буквы для более современного вида */
-    letter-spacing: normal;
-    /* Стандартный межбуквенный интервал */
+    font-size: 2.5em; /* Размер шрифта для заголовка */
+    margin-bottom: 20px; /* Отступ снизу */
+    color: #333; /* Цвет текста */
+    font-weight: 400; /* Жирность текста */
+    text-transform: none; /* Убираем преобразование текста */
+    letter-spacing: normal; /* Стандартный межбуквенный интервал */
 }
 
-/* Дополнительные стили для улучшения внешнего вида */
 .products {
-    padding: 40px 0;
-    text-align: center;
+    padding: 40px 0; /* Внутренние отступы */
+    text-align: center; /* Выравнивание текста по центру */
 }
 
-/* Стиль для подзаголовка (если нужен) */
 .products p {
-    font-size: 1.2em;
-    color: #666;
-    margin-top: 10px;
+    font-size: 1.5em; /* Размер шрифта для абзаца */
+    color: #666; /* Цвет текста */
+    margin-top: 10px; /* Отступ сверху */
 }
 
-
+/* Стили для карточек продуктов */
 .card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    /* Добавляем маржин для отступа между карточками */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: calc(33.333% - 20px);
-    height: 400px;
-    /* Расчет ширины для трех карточек в ряду с учетом отступов */
-    margin: 10px;
-    /* Ширина карточек с учетом отступов */
-    float: left;
-    /* Для выравнивания карточек в ряд */
-    position: relative;
-    display: flex;
-    flex-direction: column;
-
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень карточки */
+    border-radius: 10px; /* Скругление углов */
+    overflow: hidden; /* Скрываем элементы выходящие за границы */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавная анимация */
+    width: calc(33.333% - 20px); /* Расчет ширины карточки */
+    height: 400px; /* Высота карточки */
+    margin: 10px; /* Отступы */
+    float: left; /* Обтекание слева направо */
+    position: relative; /* Относительное позиционирование */
+    display: flex; /* Flex-контейнер */
+    flex-direction: column; /* Элементы в столбец */
 }
 
+/* Стили для изображения в карточке продукта */
 .card-image {
-    height: 200px;
-    /* Высота для изображения */
-    width: 100%;
-    /* Ширина изображения растягивается на всю карточку */
-    object-fit: contain;
-    /* Изображение подстраивается, сохраняя пропорции */
-    object-position: center;
-    /* Центрируем изображение в блоке */
+    height: 200px; /* Высота изображения */
+    width: 100%; /* Ширина изображения */
+    object-fit: contain; /* Подгонка изображения по размеру блока */
+    object-position: center; /* Центрирование изображения */
 }
 
+/* Эффект при наведении на карточку */
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px); /* Поднятие карточки */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Увеличение тени */
 }
 
-/* Сброс стилей для обтекания */
+/* Очистка float после карточек */
 .products:after {
     content: "";
     display: table;
     clear: both;
 }
 
-
+/* Стили для содержимого карточки */
 .card-content {
-    padding: 15px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: 15px; /* Внутренние отступы */
+    flex-grow: 1; /* Растягивание блока на оставшееся пространство */
+    display: flex; /* Flex-контейнер */
+    flex-direction: column; /* Элементы в столбец */
+    justify-content: space-between; /* Равномерное распределение элементов */
 }
 
+/* Заголовок карточки */
 .card-title {
-    font-size: 1.2em;
-    font-weight: bold;
+    font-size: 1.5em;
     margin-bottom: 10px;
-}
-
-.card-text {
-    font-size: 0.9em;
+    font-weight: normal; /* Нормальный вес шрифта */
     color: #555;
 }
 
+/* Текст карточки */
+.card-text {
+    font-size: 0.5em;
+    color: #555;
+    font-weight: normal; /* Нормальный вес шрифта */
+}
+
+/* Дополнительная информация при наведении */
 .card-info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    /* Полупрозрачный черный фон */
-    color: #fff;
-    display: flex;
-    align-items: center;
-    /* Выравнивание содержимого по центру по вертикали */
-    justify-content: center;
-    /* Выравнивание содержимого по центру по горизонтали */
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    position: absolute; /* Абсолютное позиционирование */
+    top: 0; right: 0; bottom: 0; left: 0; /* Размеры блока */
+    background: rgba(0, 0, 0, 0.9); /* Полупрозрачный фон */
+    color: #fff; /* Белый текст */
+    display: flex; /* Flex-контейнер */
+    align-items: center; /* Выравнивание по центру */
+    justify-content: center; /* Выравнивание по центру */
+    opacity: 0; /* Начальная прозрачность */
+    transition: opacity 0.3s ease, background-color 0.3s ease; /* Добавляем плавный переход для фона */
 }
 
-.card:hover .card-info {
-    opacity: 1;
-    /* Показываем информацию при наведении */
-}
-
-.about {
-    padding: 40px 15px;
-    /* Добавляем отступы */
-    position: relative;
-    /* Для позиционирования подложки */
-}
-
-/* Подложка, начинающаяся после заголовка */
-.about::after {
-    content: '';
-    position: absolute;
-    top: 60px;
-    /* Смещаем вниз относительно начала блока */
-    left: 0;
-    right: 0;
-    background: url('smarthub-logo.svg') no-repeat center center;
-    background-size: cover;
-    /* Растягиваем фон на весь блок */
-    opacity: 0.1;
-    /* Уменьшаем прозрачность */
-    z-index: -1;
-    height: calc(100% - 60px);
-    /* Высота подложки */
-}
-
-/* Стилизация заголовка */
-.about h2 {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 20px;
-    font-weight: 600;
+.card-info p {
+    font-size: 1.5em;
+    font-weight: normal; /* Нормальный вес шрифта */
+    margin: 0;
+    padding: 10px;
     text-align: center;
 }
 
-/* Анимация при скролле */
-.about h2,
-.about p {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
-    /* Увеличиваем смещение и добавляем эффект масштабирования */
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    /* Увеличиваем продолжительность анимации */
-    will-change: opacity, transform;
+/* Плавное появление дополнительной информации */
+.card:hover .card-info {
+    opacity: 1; /* Делаем текст полностью видимым */
+    transition: opacity 0.5s ease, background-color 0.5s ease; /* Плавное изменение прозрачности и фона */
 }
 
-/* Активация анимации при скролле */
-.about.in-view h2,
-.about.in-view p {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    /* Возвращаем элементы в исходное состояние */
-}
-
-
-/* Анимация для текста */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+/* Стили для мобильных устройств */
+@media (max-width: 768px) {
+    /* Каждая карточка занимает всю ширину */
+    .card {
+        width: 100%; /* Ширина карточки на всю ширину */
+        margin: 10px 0; /* Отступы для разделения карточек */
     }
 
-    to {
+    /* Показ дополнительной информации только при касании на сенсорных устройствах */
+    .card:hover .card-info,
+    .card:active .card-info {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
-.about h2,
+/* Показ дополнительной информации при наведении на несенсорных устройствах */
+@media (hover: hover) {
+    .card:hover .card-info {
+        opacity: 1;
+    }
+}
+
+/* Блок "О компании" */
+.about {
+    padding: 40px 15px; /* Внутренние отступы */
+    position: relative; /* Относительное позиционирование для подложки */
+}
+
+/* Подложка блока "О компании" */
+.about::after {
+    content: ''; /* Содержимое блока */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 30px; /* Отступ сверху */
+    left: 0; right: 0; /* Ширина блока */
+    background: url('smarthub-logo.svg') no-repeat center center; /* Логотип как фон */
+    background-size: cover; /* Растягивание фона */
+    opacity: 0.1; /* Прозрачность фона */
+    z-index: -1; /* Фон под контентом */
+    height: calc(100% - 60px); /* Высота фона */
+}
+
+/* Заголовок блока "О компании" */
+.about h2 {
+    font-size: 2.5em; /* Размер шрифта заголовка */
+    color: #333; /* Цвет текста */
+    margin-bottom: 20px; /* Отступ снизу */
+    font-weight: normal; /* Нормальный вес шрифта */
+    text-align: center; /* Выравнивание по центру */
+}
+
+/* Текст блока "О компании" */
 .about p {
-    animation: fadeIn 1s ease-out;
+    font-size: 1.2em; /* Увеличенный размер шрифта */
+    color: #555; /* Цвет текста */
+    margin-top: 6px; /* Отступ сверху */
+    line-height: 1.4; /* Высота строки */
+    font-weight: normal; /* Нормальный вес шрифта */
+    text-align: center; /* Выравнивание по центру */
+}
+
+/* Анимация при скролле для блока "О компании" */
+.about h2, .about p {
+    opacity: 0; /* Начальная прозрачность */
+    transform: translateY(30px) scale(0.95); /* Смещение и масштабирование */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Плавная анимация */
+    will-change: opacity, transform; /* Оптимизация анимации */
+}
+
+.about.in-view h2, .about.in-view p {
+    opacity: 1; /* Полная видимость */
+    transform: translateY(0) scale(1); /* Возвращение в исходное положение */
 }
 
 .contacts {
-    padding: 40px 0;
     text-align: center;
+    padding: 40px 0;
+    background-color: #f8f8f7;
 }
 
 .contacts h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 2em;
     color: #333;
-    font-weight: 600;
+    margin-bottom: 20px;
+    font-weight: normal;
 }
 
 .contacts p {
@@ -364,38 +419,103 @@ nav ul li a:focus {
     margin-bottom: 20px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: left;
-}
-
-th, td {
-    padding: 8px 12px;
-    border: 1px solid #ddd; /* Границы для ячеек таблицы */
-}
-
-th {
-    background-color: #f8f8f8; /* Цвет фона для заголовков */
+.contacts a {
+    color: #007bff;
+    text-decoration: none;
     font-weight: bold;
 }
 
-tr:nth-child(odd) {
-    background-color: #f2f2f2; /* Чередование цвета фона строк */
+.contacts a:hover {
+    text-decoration: underline;
 }
 
+.contacts i {
+    margin-right: 5px;
+    color: #007bff;
+}
+
+/* Блок "Наши Салоны" */
+.salons {
+    padding: 30px 0; /* Увеличиваем верхний отступ */
+    text-align: center;
+    background-color: #f8f8f7;
+}
+
+.salons h2 {
+    font-size: 2.2em; /* Увеличиваем размер шрифта заголовка */
+    color: #333;
+    margin-bottom: 30px; /* Увеличиваем отступ снизу */
+    font-weight: normal;
+}
+
+.salons p {
+    font-size: 1.2em; /* Увеличиваем размер шрифта заголовка */
+    color: #333;
+    margin-bottom: 30px; /* Увеличиваем отступ снизу */
+    font-weight: normal;
+}
+
+/* Стили для таблицы */
+.salons table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Тень таблицы */
+}
+
+/* Стили для ячеек таблицы */
+th, td {
+    padding: 0.75em;
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+    background-color: #f8f8f8; /* Цвет фона ячеек */
+}
+
+th {
+    font-weight: 600; /* Жирность шрифта заголовков */
+    color: #333; /* Цвет текста заголовков */
+}
+
+tr:nth-child(odd) td {
+    background-color: #fff; /* Цвет фона для нечетных строк */
+}
+
+
+/* Медиазапросы для мобильных устройств */
+@media (max-width: 768px) {
+    .salons h2 {
+        font-size: 1.8em;
+    }
+
+    .salons p {
+        font-size: 1.1em;
+    }
+
+    th, td {
+        padding: 0.5em;
+    }
+
+    /* Адаптация таблицы для мобильных устройств */
+    .salons table {
+        font-size: 0.9em;
+    }
+}
+
+
+/* Блок "Карьера" */
 .career {
     padding: 40px 0;
     text-align: center;
-    background-color: #f8f8f7; /* Добавляем фон для визуального разделения блоков */
+    background-color: #f8f8f7;
+    font-family: 'Roboto', sans-serif;
 }
 
 .career h2 {
     font-size: 2.5em;
     color: #333;
     margin-bottom: 20px;
-    font-weight: 600;
+    font-weight: normal;
+    letter-spacing: -0.02em;
 }
 
 .career p {
@@ -403,27 +523,45 @@ tr:nth-child(odd) {
     color: #555;
     max-width: 800px;
     margin: 0 auto;
+    letter-spacing: -0.01em;
 }
 
+
+/* Футер */
 footer {
-    background-color: #333; /* Темный фон для контраста */
-    color: #fff; /* Белый текст для читаемости */
-    padding: 20px 0;
-    text-align: center;
+    background-color: #333; /* Темный цвет фона футера */
+    color: #fff; /* Белый цвет текста */
+    padding: 20px 0; /* Внутренние отступы сверху и снизу */
+    text-align: center; /* Выравнивание текста по центру */
 }
 
+/* Контент футера */
 footer .footer-content {
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.5;
+    max-width: 800px; /* Максимальная ширина контента */
+    margin: 0 auto; /* Центрирование */
+    line-height: 1.5; /* Высота строки текста */
 }
 
+/* Стили для ссылок в футере */
 footer a {
-    color: #ffcc00; /* Желтый цвет для ссылок */
-    text-decoration: none;
-    transition: color 0.2s ease-in-out;
+    color: #ffcc00; /* Желтый цвет ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: color 0.2s ease-in-out; /* Плавная анимация цвета */
 }
 
+/* Стили для ссылок при наведении */
 footer a:hover {
-    color: #fff; /* Смена цвета при наведении */
+    color: #fff; /* Белый цвет текста при наведении */
+}
+
+/* Адаптация футера для мобильных устройств */
+@media (max-width: 768px) {
+    footer .footer-content {
+        padding: 10px; /* Внутренние отступы для маленьких экранов */
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
