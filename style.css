@@ -291,6 +291,14 @@ footer a:hover {
         z-index: 4;
     }
 
+    .about h1, .contacts h1, .salons h1 {
+        font-size: 1.3em;
+    }
+
+    .about h3, .contacts h3, .salons h3 {
+        font-size: 1em;
+    }
+
     footer .footer-content {
         padding: 10px;
     }
