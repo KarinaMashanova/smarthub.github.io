@@ -78,6 +78,7 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -197,7 +198,8 @@ nav ul li a:focus {
     }
 
     nav ul {
-        flex-direction: row; /* Элементы списка в строку */
+        width: 100%;
+        justify-content: center;
     }
 
     nav ul li {
@@ -214,7 +216,7 @@ nav ul li a:focus {
     
     nav ul li a {
         display: block; /* Ссылки блочного типа */
-        text-align: left; /* Текст по левому краю */
+        text-align: center; /* Текст по левому краю */
         padding: 10px; /* Внутренние отступы */
     }
 }
